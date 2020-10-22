@@ -48,7 +48,7 @@ services:
         depends_on:
             -                       mysql-server
         ports:
-            -                       "8001:80"
+            -                       "8009:80"
 
     node-backend:
         image:                      abassi/nodejs-server:10.0-dev
@@ -62,7 +62,7 @@ services:
         depends_on:
             -                       mysql-server
         ports: 
-            -                       "8000:3000"
+            -                       "8005:3000"
         command:                    nodemon /home/node/app/src/index.js
 
 networks:
