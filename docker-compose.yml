@@ -15,7 +15,7 @@ version: '3'
 services:
 
     ts-compiler:
-        image:                      harmish/typescript
+        image:                      jtalton/typescript-service #harmish/typescript
         hostname:                   ts-compiler
         container_name:             ts-compiler
         volumes:
@@ -24,7 +24,7 @@ services:
         command:                    "tsc --project /workspace --outDir /output --watch --pretty true"
 
     mysql-server:
-        image:                      mysql:5.7
+        image:                      mysql/mysql-server:latest #mysql/mysql-server:latest-amd64
         hostname:                   mysql-server
         container_name:             mysql-server
         environment:
@@ -48,10 +48,10 @@ services:
         depends_on:
             -                       mysql-server
         ports:
-            -                       "8001:80"
+            -                       "8009:80"
 
     node-backend:
-        image:                      abassi/nodejs-server:10.0-dev
+        image:                      jaanhio/nodejs-server-arm #bassi/nodejs-server:10.0-dev
         hostname:                   node-backend
         container_name:             node-backend
         volumes:
@@ -62,7 +62,7 @@ services:
         depends_on:
             -                       mysql-server
         ports: 
-            -                       "8000:3000"
+            -                       "8005:3000"
         command:                    nodemon /home/node/app/src/index.js
 
 networks:
