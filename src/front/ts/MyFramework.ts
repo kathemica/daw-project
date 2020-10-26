@@ -63,6 +63,10 @@ class MyFramework{
 
         xhr.open('POST', url, true);
 
+        // envio JSON en body de request (Usar con NODEJS)
+        //xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        //xhr.send(JSON.stringify(data));
+
         // envio Formdata en body de request (Usar con Apache,PythonWS,etc.)
         let formData:FormData = new FormData();
 

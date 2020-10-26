@@ -29,11 +29,20 @@ services:
         container_name:             mysql-server
         environment:
             MYSQL_ROOT_PASSWORD:    userpass
+            MYSQL_DATABASE: devices
+            MYSQL_USER: root
         volumes:
             -                       ./db/dumps:/docker-entrypoint-initdb.d
             -                       ./db/data:/var/lib/mysql
         networks:
             -                       daw-ceiot-network
+        ports:
+            # <Port exposed> : < MySQL Port running inside container>
+            - '3306:3306'
+        expose:
+            # Opens port 3306 on the container
+            - '3306'
+            # Where our data will be persisted
 
     mysql-admin:
         image:                      phpmyadmin/phpmyadmin
@@ -42,7 +51,7 @@ services:
         environment: 
             PMA_HOST:               mysql-server
             PMA_PORT:               3306
-            MYSQL_ROOT_PASSWORD:    userpass
+            MYSQL_ROOT_PASSWORD:    86TYYj1mjOxedaQoaF
         networks:
             -                       daw-ceiot-network
         depends_on:
@@ -63,7 +72,9 @@ services:
             -                       mysql-server
         ports: 
             -                       "8005:3000"
-        command:                    nodemon /home/node/app/src/index.js
+        command:                    nodemon /home/node/app/src/server.js
+        environment:
+            - NODE_ENV=development
 
 networks:
     daw-ceiot-network:
