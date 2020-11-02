@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 
-<body>
+<body  >
     <!-- Navigation bar -->
     <nav style="background-color:#124580">
         <div class="nav-wrapper">
@@ -29,57 +29,71 @@
         </div>
     </nav>
     <!-- Page Body -->
-    <div class="container">
-        <a id="boton-prueba"></a>
-        <h4>Boton de prueba</h4>
-        <a id="boton" class="waves-effect waves-light btn">button</a>
-    </div>
-
-    <br/>
-    <div class="container">
-        <a id="dispositivos"></a>
-        <h4>Dispositivos</h4>
-        <ul id="deviceListId" class="collection">
-            <!-- Agregar dispositivos -->
-            <!-- <li class="collection-item avatar">
-                <img src="static/images/lightbulb.png" alt="" class="circle">
-                <span class="title">Title</span>
-                <p>First Line <br> Second Line
-                </p>
-                <a href="#!" class="secondary-content">
-                    
-                    <div class="switch">
-                        <label>
-                            Off
-                            <input type="checkbox">
-                            <span class="lever"></span>
-                            On
-                        </label>
+    <div class="container section" >
+        <ul class="collapsible popout" data-collapsible = "accordion">
+            <li>
+<!--                Header-->
+                <div class="collapsible-header">
+                    <i id="dialog_symbol" class="material-icons">add_task</i>
+                    <span id="dialog_text">Dispositivo</span>
+                </div>
+<!--                body-->
+                <div class="collapsible-body">
+                    <div class="row">
+                        <form class="col s12">
+                            <input id="id_disp" type="text" class="validate">
+                            <div class="row">
+                                <div class="col l6 flow-text center">
+                                    <div class="input-field col l6" >
+                                        <i class="material-icons prefix">fingerprint</i>
+                                        <input id="name" type="text" class="validate" data-length="10">
+                                        <label for="name">Nombre</label>
+                                    </div>
+                                </div>
+                                <div class="col l12 flow-text center">
+                                    <div class="input-field col l12">
+                                        <i class="material-icons prefix">comment</i>
+                                        <input id="descripcion" type="text" class="validate">
+                                        <label for="descripcion">Descripción</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col l6 flow-text center">
+                                    <label>
+                                        <input id="typeLight" name="device_types" type="radio" checked />
+                                        <span>Luz</span>
+                                    </label>
+                                    <label>
+                                        <input id="typeWindow" name="device_types" type="radio" />
+                                        <span>Persiana</span>
+                                    </label>
+                                </div>
+                                <div class="col l6 flow-text center">
+                                    <label>
+                                        <input id="dimerizable" type="checkbox">
+                                        <span>Dimerizable</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                </a>
+                    <a id="save" class="waves-effect waves-light btn"><i class="material-icons left">save_alt</i>Guardar</a>
+                    <a id="cancel" class="waves-effect waves-light red btn"><i class="material-icons left">cancel_presentation</i>Cancelar</a>
+                </div>
             </li>
-
-            <li class="collection-item avatar">
-                <img src="static/images/window.png" alt="" class="circle">
-                <span class="title">Title</span>
-                <p>First Line <br> Second Line
-                </p>
-                <a href="#!" class="secondary-content">
-                    
-                    <div class="switch">
-                        <label>
-                            Off
-                            <input type="checkbox">
-                            <span class="lever"></span>
-                            On
-                        </label>
-                    </div>
-                </a>
-            </li> -->
-
-
         </ul>
     </div>
+    <br/>
+    <div class="container section" >
+        <div class="row">
+            <a id="dispositivos"></a>
+            <h4>Dispositivos</h4>
+        </div>
+        <ul id="deviceListId" class="collection"  style="display: block; height: 500px; overflow: auto">
+        </ul>
+    </div>
+
     <!-- Page Footer -->
     <footer class="page-footer" style="background-color:#124580">
         <div class="container">
@@ -100,11 +114,12 @@
         </div>
     </footer>
     <!--JavaScript at end of body for optimized loading-->
-    <script type="text/javascript" src="static/js/materialize.min.js"></script>
+    <script type="text/javascript" src="static/js/materialize.js"></script>
     <script type="text/javascript" src="js/Main.js"></script>
     <script type="text/javascript" src="js/User.js"></script>
     <script type="text/javascript" src="js/MyFramework.js"></script>
     <script type="text/javascript" src="js/ViewMainPage.js"></script>
+
 </body>
 
 </html>

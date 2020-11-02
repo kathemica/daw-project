@@ -1,13 +1,14 @@
 const devices = require('../controllers/devices.controller');
-const router = require('express').Router();
 
 module.exports = (app) => {
-    app.get('/api', (req, res) => res.status(200).send ({
-        message: 'I AM GROOT',
-    }));
+    const router = require('express').Router();
 
     //devices
-    app.get('/api/devices', devices.findALl);
-    app.get('/api/devices/:id', devices.findOne);
-    app.post('/api/devices', devices.create);
+    router.get('/devices', devices.findALl);
+    router.get('/devices/:id', devices.get);
+    router.post('/devices', devices.create);
+    router.put('/devices/:id', devices.update);
+    router.delete('/devices/:id', devices.delete);
+
+    app.use('/api', router);
 }

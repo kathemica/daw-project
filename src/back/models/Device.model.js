@@ -18,8 +18,9 @@ module.exports = (sequelize, DataTypes) => {
   Device.init({
     id: {
       type: DataTypes.BIGINT.UNSIGNED,
+      primaryKey: true,
+      allowNull: false,
       autoIncrement: true,
-      primaryKey: true
     },
     name: {
       type: DataTypes.STRING,
@@ -29,16 +30,9 @@ module.exports = (sequelize, DataTypes) => {
         msg: 'Nombre de Device en uso.'
       },
       validate: {
-        isAlphanumeric: {
-          args: true,
-          msg: 'Campo \'name\' solo adminte letras.\n'
-        },
         len: {
           args: [1, 64],
           msg: 'La longitud de \'name\' debe ser entre 5 y 50 caracteres.'
-        },
-        notNull: {
-          msg: 'El campo \'name\' no puede ser nulo.'
         }
       }
     },
@@ -46,10 +40,6 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        isAlpha: {
-          args: true,
-          msg: 'Campo \'descripcion\' solo adminte letras.'
-        },
         len: {
           args: [1, 128],
           msg: 'La longitud de \'descripcion\' debe ser entre 1 y 128 caracteres.'
@@ -59,6 +49,7 @@ module.exports = (sequelize, DataTypes) => {
     state: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      defaultValue: 0,
       validate: {
         isInt: {
           args: true,
@@ -90,19 +81,58 @@ module.exports = (sequelize, DataTypes) => {
           }
         }
     },
+    dimerized: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 0,
+      validate: {
+        isInt: {
+          args: true,
+          msg: 'Campo \'dimerized\' solo admite números.'
+        },
+        len: {
+          args: [1, 1],
+          msg: 'La longitud de \'dimerized\ debe ser de 1 caracteres.'
+        },
+        notNull: {
+          msg: 'El campo \'dimerized\ no puede ser nulo.'
+        }
+      }
+    },
+    dimer_value: {
+      type: DataTypes.DECIMAL,
+      allowNull: false,
+      defaultValue: 0.0,
+      validate: {
+        isInt: {
+          args: true,
+          msg: 'Campo \'dimer_value\' solo admite números.'
+        },
+        // len: {
+        //   args: [1, 5],
+        //   msg: 'La longitud de \'dimer_value\ debe ser de 1 caracteres.'
+        // },
+        notNull: {
+          msg: 'El campo \'dimer_value\ no puede ser nulo.'
+        }
+      }
+    },
     createdAt: {
-      type: 'TIMESTAMP',
+      type: DataTypes.DATE,
       defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
-      allowNull: false
+      allowNull: true
     },
     updatedAt: {
-      type: 'TIMESTAMP',
-      defaultValue: sequelize.literal('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'),
-      allowNull: false
+      type: DataTypes.DATE,
+      defaultValue: sequelize.literal('NOW()'),
+      allowNull: true
     }
   }, {
       sequelize,
-      modelName: 'Devices',
+      modelName: 'devices',
+      timestamps: true,
+      paranoid: true,
+      underscored: true,
   });
 
   return Device;

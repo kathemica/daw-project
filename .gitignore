@@ -89,5 +89,28 @@ typings/
 
 src/front/js/
 
-db/data/
+mysqlConnection/data/
 /.project
+db/
+.idea/sonarlint/issuestore/index.pb
+.idea/sonarlint/issuestore/0/5/0534b76ea36c2e9be5416278e9bf19a2df4c26c2
+.idea/sonarlint/issuestore/1/b/1b8a97d86a0c5a2ced8b000d4d4c31fe35dc3b84
+.idea/sonarlint/issuestore/2/1/217f3de0457983fbf1d08d8d395c78b3836f6fa1
+.idea/sonarlint/issuestore/2/d/2d645edee09ccb79128ffa7ceb522edd3a1792ab
+.idea/sonarlint/issuestore/3/5/35b8c13cf2eb2a194eada000eb310d65aed53b2a
+.idea/sonarlint/issuestore/3/a/3a442ec12938b31a080e3984c663a6462c813bac
+.idea/sonarlint/issuestore/4/8/48a8e98b4cba6143aaeaf5ae631308a5994f0d1b
+.idea/sonarlint/issuestore/4/9/49aab02fea04fd98b24d23b8e2d619fd2f136e8f
+.idea/sonarlint/issuestore/5/5/558c5c109cbc76fa1c222d5ae5e347d51c47e29a
+.idea/sonarlint/issuestore/6/b/6b6d732540178c53b86903bc04ca5a38418f4bac
+.idea/sonarlint/issuestore/7/a/7a604ad9c460a62e8ef7d90db7eb713589ad8628
+.idea/sonarlint/issuestore/7/b/7b937e4654862aeb0d53ddaa315b8a32620f2d43
+.idea/sonarlint/issuestore/7/c/7c8a77c5bc05a7df386936dd937c8dc55851d277
+.idea/sonarlint/issuestore/7/d/7dfb16c9177cea2c4eeeeb406cc3f78cfbcda9da
+.idea/sonarlint/issuestore/8/3/8347b861f90fe4c4ca4617d795a775621281d5fc
+.idea/sonarlint/issuestore/8/7/87419dd48f171970987eb0c1df34a15101dc37d1
+.idea/sonarlint/issuestore/a/2/a232009da30517b54c0284b88f62f2c044bb70e1
+.idea/sonarlint/issuestore/a/f/af0c388cc23d37f3310de2391ddb42c482fddee1
+.idea/sonarlint/issuestore/b/6/b6896428566ba9b9fd4ba8b27f0e806f206f08e3
+.idea/sonarlint/issuestore/c/e/ce7ec6661d0b935024fdc2a60e85306081203667
+.idea/sonarlint/issuestore/f/d/fdad654188aada90843114f650be16ae391de318

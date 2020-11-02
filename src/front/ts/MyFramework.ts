@@ -6,9 +6,17 @@ interface POSTResponseListener {
     handlePOSTResponse(status: number, response: string): void;
 }
 
+interface PUTResponseListener {
+    handlePUTResponse(status: number, response: string): void;
+}
+
+interface DELETEResponseListener {
+    handleDELETEResponse(status: number, response: string): void;
+}
+
 class MyFramework{
     
-    getLementById(id: string): HTMLElement{
+    getElementById(id: string): HTMLElement{
         let elemento: HTMLElement;
 
         elemento = document.getElementById(id);
@@ -21,7 +29,7 @@ class MyFramework{
         b.addEventListener("click",()=>{
             callback();
         });
-    }
+    };
 
     //se castea el event porque no es proppiamente un HTMLElement
     getElementByEvent(evt: Event): HTMLElement{
@@ -34,7 +42,7 @@ class MyFramework{
         xhr.onreadystatechange = function(){
             if(xhr.readyState == 4){
                 if(xhr.status == 200){
-                        listener.handleGETResponse(xhr.status,xhr.responseText);
+                    listener.handleGETResponse(xhr.status, xhr.responseText);
                 }else{
                     listener.handleGETResponse(xhr.status,null);
                 }
@@ -42,44 +50,54 @@ class MyFramework{
         };
 
         xhr.open('GET', url, true);
-
-        
-
         xhr.send(null);
-    }
+    };
 
-    requestPOST(url:string, data:object,listener: POSTResponseListener):void {
+    requestPUT(url:string,  data:object, listener: PUTResponseListener):void {
         let xhr: XMLHttpRequest = new XMLHttpRequest();
+
+        xhr.open('PUT', url, true);
+
+        xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
 
         xhr.onreadystatechange = function(){
             if(xhr.readyState == 4){
                 if(xhr.status == 200){
-                        listener.handlePOSTResponse(xhr.status,xhr.responseText);
+                    listener.handlePUTResponse(xhr.status, xhr.responseText);
+                }else{
+                    listener.handlePUTResponse(xhr.status, null);
+                }
+            }
+        };
+
+        xhr.send(JSON.stringify(data));
+    };
+
+    requestPOST(url:string, data:object, listener: POSTResponseListener):void {
+        const dataJson= JSON.stringify(data);
+
+        console.log("DATA: ", dataJson);
+
+        let xhr: XMLHttpRequest = new XMLHttpRequest();
+
+        xhr.open('POST', url);
+        xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
+
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState == 4){
+                if(xhr.status == 200){
+                     listener.handlePOSTResponse(xhr.status, xhr.responseText);
                 }else{
                     listener.handlePOSTResponse(xhr.status,null);
                 }
             }
         };
 
-        xhr.open('POST', url, true);
-
-        // envio JSON en body de request (Usar con NODEJS)
-        //xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        //xhr.send(JSON.stringify(data));
-
-        // envio Formdata en body de request (Usar con Apache,PythonWS,etc.)
-        let formData:FormData = new FormData();
-
-        for(let key in data) {
-            formData.append(key, data[key]);
-        }
-        xhr.send(formData);
-    }
-
-
+        xhr.send(dataJson);
+    };
 
     configEventLister (event:string, id:string, listener:EventListenerObject):void {
         let b:HTMLElement = document.getElementById (id);
         b.addEventListener (event,listener);
-    }
+    };
 }
