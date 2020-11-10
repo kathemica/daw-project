@@ -1,7 +1,3 @@
-![header](doc/header.png)
-
-# TP Desarrollo de Aplicaciones Web
-
 <!-- PROJECT SHIELDS -->
 <!--
 *** I'm using markdown "reference style" links for readability.
@@ -16,6 +12,10 @@
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
+
+![header](doc/header.png)
+
+# TP Desarrollo de Aplicaciones Web
 
 Autor
 
