@@ -5,8 +5,8 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/kathemica/daw-project?style=plastic)
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/kathemica/daw-project?style=plastic)
 ![GitHub](https://img.shields.io/github/license/kathemica/daw-project?style=plastic)
-![GitHub last commit](https://img.shields.io/github/last-commit/kathemica/daw-project?color=red&style=plastic)
-[<img src="https://img.shields.io/badge/Linkedin-kathesama-blue">](https://www.linkedin.com/in/kathesama)
+![GitHub last commit](https://img.shields.io/github/last-commit/kathemica/daw-project?color=red&style=plastic)<br>
+[<img src="https://img.shields.io/badge/Linkedin-kathesama-blue?style=plastic">](https://www.linkedin.com/in/kathesama)
 
 
 ![header](doc/header.png)
