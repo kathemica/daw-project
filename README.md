@@ -1,12 +1,12 @@
 
-![GitHub contributors](https://img.shields.io/github/contributors/kathemica/daw-project?style=plastic)
-![GitHub language count](https://img.shields.io/github/languages/count/kathemica/daw-project?style=plastic)
+[<img src="https://img.shields.io/badge/Linkedin-kathesama-blue?style=plastic">](https://www.linkedin.com/in/kathesama)<br>
+![GitHub last commit](https://img.shields.io/github/last-commit/kathemica/daw-project?color=red&style=plastic)
 ![GitHub top language](https://img.shields.io/github/languages/top/kathemica/daw-project?style=plastic)
+![GitHub contributors](https://img.shields.io/github/contributors/kathemica/daw-project?style=plastic)
 ![GitHub repo size](https://img.shields.io/github/repo-size/kathemica/daw-project?style=plastic)
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/kathemica/daw-project?style=plastic)
 ![GitHub](https://img.shields.io/github/license/kathemica/daw-project?style=plastic)
-![GitHub last commit](https://img.shields.io/github/last-commit/kathemica/daw-project?color=red&style=plastic)<br>
-[<img src="https://img.shields.io/badge/Linkedin-kathesama-blue?style=plastic">](https://www.linkedin.com/in/kathesama)
+
 
 
 ![header](doc/header.png)
