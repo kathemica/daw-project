@@ -1,6 +1,6 @@
 
 ![GitHub contributors](https://img.shields.io/github/contributors/kathemica/daw-project?style=plastic)
-![GitHub language count](https://img.shields.io/github/languages/count/kathemica/daw-project)
+![GitHub language count](https://img.shields.io/github/languages/count/kathemica/daw-project?style=plastic)
 ![GitHub top language](https://img.shields.io/github/languages/top/kathemica/daw-project?style=plastic)
 ![GitHub repo size](https://img.shields.io/github/repo-size/kathemica/daw-project?style=plastic)
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/kathemica/daw-project?style=plastic)
