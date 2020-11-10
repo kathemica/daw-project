@@ -1,23 +1,10 @@
-<div align="center">
-  <a href="https://github.com/kathemica/daw-project/stargazers">
-    <img src="https://github.com/kathemica/daw-project" alt="Stars Badge"/>
-  </a>
-  <a href="https://github.com/elangosundar/awesome-README-templates/network/members">
-    <img src="https://img.shields.io/github/forks/elangosundar/awesome-README-templates" alt="Forks Badge"/>
-  </a>
-  <a href="https://github.com/kathemica/daw-project/pulls">
-    <img src="https://img.shields.io/github/issues-pr/elangosundar/awesome-README-templates" alt="Pull Requests Badge"/>
-  </a>
-  <a href="https://github.com/kathemica/daw-project/issues">
-    <img src="https://img.shields.io/github/issues/elangosundar/awesome-README-templates" alt="Issues Badge"/>
-  </a>
-  <a href="https://github.com/kathemica/daw-project/graphs/contributors">
-    <img alt="GitHub contributors" src="https://img.shields.io/github/contributors/elangosundar/awesome-README-templates?color=2b9348">
-  </a>
-  <a href="https://github.com/elangosundar/awesome-README-templates/blob/master/LICENSE">
-    <img src="https://img.shields.io/github/license/elangosundar/awesome-README-templates?color=2b9348" alt="License Badge"/>
-  </a>
-</div>
+
+![GitHub contributors](https://img.shields.io/github/contributors/kathemica/daw-project?style=plastic)
+![GitHub language count](https://img.shields.io/github/languages/count/kathemica/daw-project)
+![GitHub top language](https://img.shields.io/github/languages/top/kathemica/daw-project?style=plastic)
+![GitHub repo size](https://img.shields.io/github/repo-size/kathemica/daw-project?style=plastic)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/kathemica/daw-project?style=plastic)
+![GitHub](https://img.shields.io/github/license/kathemica/daw-project?style=plastic)
 
 ![header](doc/header.png)
 
