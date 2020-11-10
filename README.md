@@ -1,5 +1,5 @@
 
-[<img src="https://img.shields.io/badge/Linkedin-kathesama-blue?style=plastic">](https://www.linkedin.com/in/kathesama)<br>
+[<img src="https://img.shields.io/badge/Linkedin-kathesama-blue?style=for-the-badge">](https://www.linkedin.com/in/kathesama)<br>
 ![GitHub last commit](https://img.shields.io/github/last-commit/kathemica/daw-project?color=red&style=plastic)
 ![GitHub top language](https://img.shields.io/github/languages/top/kathemica/daw-project?style=plastic)
 ![GitHub contributors](https://img.shields.io/github/contributors/kathemica/daw-project?style=plastic)
