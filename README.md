@@ -6,7 +6,7 @@
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/kathemica/daw-project?style=plastic)
 ![GitHub](https://img.shields.io/github/license/kathemica/daw-project?style=plastic)
 ![GitHub last commit](https://img.shields.io/github/last-commit/kathemica/daw-project?color=red&style=plastic)
-![Linkedin](https://img.shields.io/badge/Linkedin-kathemica-blue)
+[<img src="https://img.shields.io/badge/Linkedin-kathesama-blue">](https://www.linkedin.com/in/kathesama)
 
 
 ![header](doc/header.png)
