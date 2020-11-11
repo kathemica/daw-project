@@ -54,7 +54,7 @@ El front-end cuenta con las siguientes tecnologías:
   * Typescript
 
 El mismo cuenta con el siguiente look & feel:
-![dashboard](doc/001.png)
+<img src="doc/001.png" width="480" />
 
 * A: Formulario de inserción de dispositivos
 * B: Scroll área para los dispositivos existentes
