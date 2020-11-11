@@ -13,6 +13,7 @@
 ![header](doc/header.png)
 
 # TP Desarrollo de Aplicaciones Web
+Trabajo práctico final de la asignatura Desarrollo de Aplicaciones Web de la Especialización en IOT de la Universidad de Buenos Aires.
 
 Autor
 
@@ -24,27 +25,23 @@ Docentes:
 * Brian Ducca
 * Santiago Germino
 
-Template project for Web Applications Development.
-
-To read all project documentation, please go to its wiki in [this link](https://github.com/ce-iot/daw-project-template/wiki).
 
 ## Introducción
 
-<details><summary>Introducción</summary>
-<p>
+El presente es un desarrollo full stack que contempla la implementación de un sistema para el manejo de dispositivos IoT en el hogar a través de una Single Page Application. dicho proyecto fué elaborado en el marco de la asignatura Desarrollo de Aplicaciones Web de la cohorte Nro 3 en Internet of Things (3CEIoT) dictada en la Facultad de Ingeniería de la UBA.
 
-#### yes, even hidden code blocks!
+Se recomienda leer la siguiente [Wiki 📖](https://github.com/ce-iot/daw-project-template/wiki) para realizar el proceso de arranque del código fuente en el servidor.
 
-```python
-print("hello world!")
-```
-
-</p>
-</details>
 
 ## Descripción del Proyecto
 
+El proyecto se encuentra compuesto de dos partes, a saber: Backend y Frontend
+
 <details><summary>Front-End</summary>
+  Elaborado con:
+  * HTML5
+  * Materialize UI
+  * Typescript
 <p>
 
 #### yes, even hidden code blocks!
