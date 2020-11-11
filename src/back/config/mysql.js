@@ -1,6 +1,5 @@
 require('dotenv').config();
 
-
 module.exports = function(env) {
   let development = {
     host     : process.env.DB_HOST || '10.0.0.50',
