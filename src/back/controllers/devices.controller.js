@@ -49,7 +49,7 @@ exports.create = async (req, res) => {
                     });
                 }).catch(err => {
                     res.status(500).send({
-                        status:"ok",
+                        status:"bad",
                         data: err.message || "Some error occurred while creating the Device."
 
                     });
@@ -102,14 +102,14 @@ exports.get = async (req, res) => {
                     });
         }else{
             return res.status(404).send({
-                status:"ok",
+                status:"not found",
                 data: "Error retrieving register with id=" + id + ', could be disabled, deleted or it doesn\'t exists in DB'
             });
         }
     }catch(error){
         res.status(500).json({
-            status:  "Error retrieving register with id=" + id,
-            data:error
+            status: "bad",
+            data: "Error retrieving register with id=" + id,
         })
     }
 };
@@ -117,8 +117,6 @@ exports.get = async (req, res) => {
 // Update a device by the id in the request
 exports.update = async (req, res) => {
     const id = req.params.id;
-
-    console.log(req.body);
 
     try{
         let data = await Device.update(req.body,{
@@ -145,8 +143,8 @@ exports.update = async (req, res) => {
         }
     }catch(error){
             res.status(500).json({
-                status:  "Error retrieving register with id=" + id,
-                data:error
+                status:  'bad',
+                data: "Error updating register with id=" + id
             })
     }
 };
@@ -160,18 +158,21 @@ exports.delete = async (req, res) => {
     })
         .then(num => {
             if (num == 1) {
-                res.send({
-                    message: "Device was deleted successfully!"
+                res.status(200).send({
+                    status: 'ok',
+                    data:  "Device was deleted successfully!"
                 });
             } else {
-                res.send({
-                    message: `Cannot delete Device with id=${id}. Maybe Device was not found!`
+                res.status(202).send({
+                    status: `bad`,
+                    data: `Cannot delete Device with id=${id}. Maybe Device was not found!`
                 });
             }
         })
         .catch(err => {
             res.status(500).send({
-                message: "Could not delete Device with id=" + id
+                status: 'bad',
+                data: "Could not delete Device with id=" + id
             });
         });
 };
