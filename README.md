@@ -35,6 +35,9 @@ El presente es un desarrollo full stack que contempla la implementación de un s
 
 Se recomienda leer la siguiente [Wiki 📖](https://github.com/ce-iot/daw-project-template/wiki) para realizar el proceso de arranque del código fuente en el servidor.
 
+#### ¡IMPORTANTE!
+<img src="doc/warning.png" width="80" /> Por única vez antes de ejecutar *docker-compose up* se deben instalar las depedencias del backend ejecutando: *npm i*
+
 ---
 
 ## Descripción del Proyecto
