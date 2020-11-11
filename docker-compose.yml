@@ -28,8 +28,8 @@ services:
         hostname:                   mysql-server
         container_name:             mysql-server
         environment:
-            MYSQL_ROOT_PASSWORD:    userpass
-            MYSQL_DATABASE: devices
+            MYSQL_ROOT_PASSWORD:    86TYYj1mjOxedaQoaF
+            MYSQL_DATABASE: smart_home
             MYSQL_USER: root
         volumes:
             -                       ./db/dumps:/docker-entrypoint-initdb.d

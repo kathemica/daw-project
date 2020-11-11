@@ -7,9 +7,9 @@
 -- Server version: 5.7.26-0ubuntu0.16.04.1
 -- PHP Version: 7.0.33-0ubuntu0.16.04.4
 
-CREATE DATABASE IF NOT EXISTS smart_home;
+CREATE DATABASE IF NOT EXISTS smart_homes;
 
-USE smart_home;
+USE smart_homes;
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -22,6 +22,9 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
+#
+# CREATE USER 'nodeadmin'@'*' IDENTIFIED BY 'userpass';
+# GRANT ALL PRIVILEGES ON smart_homes.* TO 'nodeadmin'@'localhost';
 --
 -- Database: `smart_home`
 --
@@ -31,47 +34,47 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `Devices`
 --
-
-CREATE TABLE `Devices` (
-  `id` int(11) NOT NULL,
-  `name` varchar(64) NOT NULL,
-  `description` varchar(128) NOT NULL,
-  `state` int(11) NOT NULL,
-  `type` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `Devices`
---
-
-INSERT INTO `Devices` (`id`, `name`, `description`, `state`, `type`) VALUES
-(1, 'Lampara 1', 'Luz living', 1, 0),
-(2, 'Lampara 2', 'Luz cocina', 0, 0),
-(3, 'Velador', 'Velador living', 1, 0),
-(4, 'Persiana 1', 'Persiana living', 1, 1),
-(5, 'Persiana 2', 'Persiana de la cocina', 1, 1),
-(6, 'Persiana 3', 'Persiana balcon', 0, 1);
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `Devices`
---
-ALTER TABLE `Devices`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `Devices`
---
-ALTER TABLE `Devices`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-COMMIT;
+#
+# CREATE TABLE `Devices` (
+#   `id` int(11) NOT NULL,
+#   `name` varchar(64) NOT NULL,
+#   `description` varchar(128) NOT NULL,
+#   `state` int(11) NOT NULL,
+#   `type` int(11) NOT NULL
+# ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+#
+# --
+# -- Dumping data for table `Devices`
+# --
+#
+# INSERT INTO `Devices` (`id`, `name`, `description`, `state`, `type`) VALUES
+# (1, 'Lampara 1', 'Luz living', 1, 0),
+# (2, 'Lampara 2', 'Luz cocina', 0, 0),
+# (3, 'Velador', 'Velador living', 1, 0),
+# (4, 'Persiana 1', 'Persiana living', 1, 1),
+# (5, 'Persiana 2', 'Persiana de la cocina', 1, 1),
+# (6, 'Persiana 3', 'Persiana balcon', 0, 1);
+#
+# --
+# -- Indexes for dumped tables
+# --
+#
+# --
+# -- Indexes for table `Devices`
+# --
+# ALTER TABLE `Devices`
+#   ADD PRIMARY KEY (`id`);
+#
+# --
+# -- AUTO_INCREMENT for dumped tables
+# --
+#
+# --
+# -- AUTO_INCREMENT for table `Devices`
+# --
+# ALTER TABLE `Devices`
+#   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+# COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -4,9 +4,9 @@ module.exports = function(env) {
   let development = {
     host     : process.env.DB_HOST || '10.0.0.50',
     port     : process.env.DB_PORT || '3306',
-    user     : process.env.DB_USERNAME || 'nodeadmin',
-    password : process.env.DB_PASSWORD || 'YHezDioFfnwiy0h8Jw',
-    database : process.env.DB_DATABASE || 'devices',
+    user     : process.env.DB_USERNAME || 'root',
+    password : process.env.DB_PASSWORD || '86TYYj1mjOxedaQoaF',
+    database : process.env.DB_DATABASE || 'smart_home',
     dialect: process.env.DB_DIALECT || 'mysql',
     pool: {
       max: process.env.DB_POOL_MAX,
@@ -20,11 +20,11 @@ module.exports = function(env) {
     }
   };
   let test= {
-    host     : process.env.DB_HOST || '10.0.0.50',
+    host     : process.env.DB_HOST || 'localhost',
     port     : process.env.DB_PORT || '3306',
-    user     : process.env.DB_USERNAME || 'nodeadmin',
-    password : process.env.DB_PASSWORD || 'YHezDioFfnwiy0h8Jw',
-    database : process.env.DB_DATABASE || 'devices',
+    user     : process.env.DB_USERNAME || 'root',
+    password : process.env.DB_PASSWORD || '86TYYj1mjOxedaQoaF',
+    database : process.env.DB_DATABASE || 'smart_home',
     dialect: process.env.DB_DIALECT || 'mysql',
     define: {
       //genera claves foráneas de este tipo: user_id en vez de userId
