@@ -28,7 +28,7 @@ services:
         hostname:                   mysql-server
         container_name:             mysql-server
         environment:
-            MYSQL_ROOT_PASSWORD:    86TYYj1mjOxedaQoaF
+            MYSQL_ROOT_PASSWORD:    userpass
             MYSQL_DATABASE: smart_home
             MYSQL_USER: root
         volumes:
@@ -51,7 +51,7 @@ services:
         environment: 
             PMA_HOST:               mysql-server
             PMA_PORT:               3306
-            MYSQL_ROOT_PASSWORD:    86TYYj1mjOxedaQoaF
+            MYSQL_ROOT_PASSWORD:    userpass
         networks:
             -                       daw-ceiot-network
         depends_on:
