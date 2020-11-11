@@ -155,7 +155,7 @@ Obtener un dispositivo de la base de datos.
 #### POST
 ##### Descripción
 
-Obtener un dispositivo de la base de datos.
+Registrar un dispositivo en la base de datos.
 
 ##### Parámetros
 
