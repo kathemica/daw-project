@@ -9,15 +9,15 @@
 
 //=======[ Settings, Imports & Data ]==========================================
 require('dotenv').config();
-
 const chalk = require('chalk');
 const express = require('express');
 const bodyParser = require('body-parser');
 
 const mysqlConnObj = require('./database/mysql.connection');
 
-const app = express();
 const PORT =  process.env.SERVER_PORT || 3000;
+
+const app = express();
 
 //middleware para poder rellenar el req.body
 // parse application/x-www-form-urlencoded
@@ -25,9 +25,11 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json());
 // app.use(bodyParser.json({ type: 'application/vnd.api+json' }))
-require('./routes/')(app);
+
 // to serve static files
 app.use(express.static('/home/node/app/static/'));
+
+require('./routes/')(app);
 
 //=======[ Main module code ]=================================================
 

@@ -1,7 +1,5 @@
 require('dotenv').config();
-// const path = require('path');
 
-// const storage = path.join(__dirname, '../database/mysql.connection');
 
 module.exports = function(env) {
   let development = {

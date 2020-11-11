@@ -7,10 +7,10 @@ const models = require('../models');
 const Device = models.Device;
 const Op = models.Sequelize.Op;
 
-let endpoints = {};
 
 //metodos
 // Crear un nuevo registro
+
 exports.create = async (req, res) => {
     try {
         // Validate request
@@ -21,13 +21,14 @@ exports.create = async (req, res) => {
             });
             return;
         }
-
         let data = await Device.findOne(
             {   where:{
-                    name:req.body.name,
-                    deleted_at: null
+                    name:req.body.name
                 }
-            });
+            }).catch(e => {
+                console.log("ERROR: ", e);
+                return null;
+            })
 
         if (_isNull(data)){
             // Create a device
@@ -48,11 +49,13 @@ exports.create = async (req, res) => {
                     });
                 }).catch(err => {
                     res.status(500).send({
-                        message: err.message || "Some error occurred while creating the Device."
+                        status:"ok",
+                        data: err.message || "Some error occurred while creating the Device."
+
                     });
             });
         }else{
-           return res.status(403).json({
+           return res.status(409).json({
                 status:"bad",
                 data: 'Ya existe un dispositivo activo con esos datos'
             });
@@ -76,7 +79,7 @@ exports.findALl = async  (req, res) => {
         }).catch(err => {
             res.status(500).send({
                 status: "bad",
-                data:err.message || "Some error occurred while retrieving devices."
+                data: err.message || "Some error occurred while retrieving devices."
             });
         });
 };
@@ -88,8 +91,7 @@ exports.get = async (req, res) => {
 
         let data = await Device.findOne(
             {   where:{
-                    id:id,
-                    deleted_at: null
+                    id:id
                 }
             });
 
@@ -116,7 +118,7 @@ exports.get = async (req, res) => {
 exports.update = async (req, res) => {
     const id = req.params.id;
 
-    console.log(id);
+    console.log(req.body);
 
     try{
         let data = await Device.update(req.body,{
@@ -124,7 +126,7 @@ exports.update = async (req, res) => {
                 id:id
             }
         });
-        console.log(data);
+
         if (!_isNull(data)){
             data = await Device.findOne({ attributes: ['id', 'name', 'descripcion', 'state', 'type', 'dimerized', 'dimer_value']},
                 {   where:{

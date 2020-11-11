@@ -1,0 +1,27 @@
+{
+  "name": "daw-project",
+  "version": "1.0.0",
+  "description": "![header](doc/header.png)",
+  "main": "server.ts",
+  "directories": {
+    "doc": "doc"
+  },
+  "dependencies": {
+    "swagger-jsdoc": "^5.0.1",
+    "swagger-ui-express": "^4.1.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kathemica/daw-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kathemica/daw-project/issues"
+  },
+  "homepage": "https://github.com/kathemica/daw-project#readme"
+}

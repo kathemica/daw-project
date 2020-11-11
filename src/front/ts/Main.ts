@@ -41,13 +41,10 @@ class Main implements EventListenerObject, GETResponseListener, POSTResponseList
 
         this.myFramework.requestGET("http://10.0.0.50:8005/api/devices",this);
 
-        this.view = new ViewMainPage(this.myFramework);
+        this.view = new ViewMainPage(this.myFramework, this);
     };
 
     handleEvent(evt: Event): void {
-        console.log ("se hizo click");
-        // console.log (this);
-        
         let btnB:HTMLElement = this.myFramework.getElementByEvent(evt);
 
         switch (btnB.id) {
@@ -60,28 +57,24 @@ class Main implements EventListenerObject, GETResponseListener, POSTResponseList
                     let typeWindow = <HTMLInputElement> this.myFramework.getElementById("typeWindow");
 
                     let deviceListId = <HTMLInputElement> this.myFramework.getElementById("deviceListId");
-                    console.log(deviceListId.dataset);
 
                     let checked;
                     try{
                         let dimerEnabled = <HTMLInputElement> this.myFramework.getElementById("dimerizable");
                         checked = dimerEnabled.checked ? 1:0;
                     }catch (e) {
-                        console.log("Error: ", e);
                         checked= 0;
                     }
 
                     let newDevice = {
                         name: name.value,
                         descripcion: descripcion.value,
-                        state: 1,
-                        type: typeLight.checked ? 1 : typeWindow.checked ? 1 : 0,
+                        state: 0,
+                        type: typeLight.checked ? 0 : typeWindow.checked ? 1 : 0,
                         dimerized:  checked
                     };
 
-                    // console.log(newDevice);
                     this.myFramework.requestPOST(`http://10.0.0.50:8005/api/devices/`, newDevice, this);
-                    this.clearAcordion(true);
                 break;
             case "cancel":
                 console.log(btnB);
@@ -91,12 +84,9 @@ class Main implements EventListenerObject, GETResponseListener, POSTResponseList
                 console.log(btnB);
                 break;
             default:
-                    console.log('Dev click');
                     let estado: Number = this.view.getSwitchStateById(btnB.id);
-
                     let data = {"id" : `${btnB.id}`, "state": estado };
 
-                    console.log(estado);
                     this.myFramework.requestPUT(`http://10.0.0.50:8005/api/devices/${btnB.id}`, data, this);
                 break;
         };
@@ -110,33 +100,133 @@ class Main implements EventListenerObject, GETResponseListener, POSTResponseList
         M.updateTextFields();
 
         reload? window.location.reload(false): null;
-    }
+    };
 
     handleGETResponse(status: number, response: string): void {
-        // throw new Error("Method not implemented.");
-        // console.log(response);
-        // let datas = response;
-        var jsonResponse = JSON.parse(response);
-        console.log(jsonResponse["data"]);
+        switch (status) {
+            case 200:
+                    var jsonResponse = JSON.parse(response);
 
-        // let data: Array<DeviceInt> = JSON.parse (response);
-        let data: Array<DeviceInt> = jsonResponse["data"];
-        // console.log(data);
-        this.view.showDevices(data);
-        data.forEach(element => {
-            let d:HTMLElement = this.myFramework.getElementById(`${element.id}`);
-            d.addEventListener("click", this);
-        });
+                    let data: Array<DeviceInt> = jsonResponse["data"];
+                    this.view.showDevices(data);
+                    data.forEach(element => {
+                        let d:HTMLElement = this.myFramework.getElementById(`${element.id}`);
+                        d.addEventListener("click", this);
+                    });
+
+                    let inputs= document.getElementsByTagName("input");
+
+                    for (var i = 0, length = inputs.length; i < length; i++) {
+                        let input= inputs[i];
+                        const id= input.getAttribute('parent_id');
+                        if (id !== null){
+                            input.addEventListener('click', () => {
+                                let data = {"id" : `${id}`, "dimer_value": `${input.value}` };
+                                this.myFramework.requestPUT(`http://10.0.0.50:8005/api/devices/${id}`, data, this);
+                            }, true);
+                        }
+                    };
+
+                    let anchors = document.getElementsByTagName("a");
+                    for (let i = 0, length = anchors.length; i < length; i++) {
+                        let anchor = anchors[i];
+                        const action= anchor.getAttribute('action');
+
+                        if (action !== null && action === "delete"){
+                            // console.log(action);
+                            const parent_id= anchor.getAttribute('parent_id');
+
+                            anchor.addEventListener('click', () => {
+                                this.myFramework.requestDELETE(`http://10.0.0.50:8005/api/devices/${parent_id}`, this);
+                            }, true);
+                        }
+                    };
+                break;
+            case 400:
+                    console.log(`Error [${status}]: `, response || "Conflicto");
+                    M.toast({html: `El nombre no puede estar vacío!.`, classes: 'rounded'});
+                break;
+            case 409:
+                    console.log(`Error [${status}]: `, response || "Conflicto");
+                    M.toast({html: `Ya existe un dispositivo con ese nombre.`, classes: 'rounded'});
+                break;
+            case 500:
+                    console.log(`Error [${status}]: `, response);
+                    M.toast({html: `${status}: Internal Server Error.`, classes: 'rounded'});
+                break;
+            default:
+                    console.log(`Error Desconocido [${status}]`, response);
+                break;
+        };
     };
 
     handlePOSTResponse(status: number, response: string): void {
-        console.log("Status" + status);
+        console.log("Status: " + status);
         console.log(response);
+        switch (status) {
+            case 200:
+                    this.clearAcordion(true);
+                break;
+            case 400:
+                    console.log(`Error [${status}]: `, response || "Conflicto");
+                    M.toast({html: `El nombre no puede estar vacío!.`, classes: 'rounded'});
+                break;
+            case 409:
+                    console.log(`Error [${status}]: `, response || "Conflicto");
+                    M.toast({html: `Ya existe un dispositivo con ese nombre.`, classes: 'rounded'});
+                break;
+            case 500:
+                    console.log(`Error [${status}]: `, response);
+                    M.toast({html: `${status}: Internal Server Error.`, classes: 'rounded'});
+                break;
+            default:
+                    console.log(`Error Desconocido [${status}]`, response);
+                break;
+        }
     }
 
     handlePUTResponse(status: number, response: string): void {
         console.log("Status" + status);
         console.log(response);
+
+        switch (status) {
+            case 200:
+                break;
+            case 403:
+                    console.log(`Error [${status}]: `, response);
+                    M.toast({html: `Error ${status}: ${response}`, classes: 'rounded'});
+                break;
+            case 500:
+                    console.log(`Error [${status}]: `, response);
+                    M.toast({html: `${status}: Internal Server Error.`, classes: 'rounded'});
+                break;
+            default:
+                console.log(`Error Desconocido [${status}]`, response);
+                M.toast({html: `Error [${status}]: ${response}`, classes: 'rounded'});
+                break;
+        }
+    }
+
+    handleDELETEResponse(status: number, response: string): void {
+        console.log("Status" + status);
+        console.log(response);
+
+        switch (status) {
+            case 200:
+                    window.location.reload(false)
+                break;
+            case 403:
+                    console.log(`Error [${status}]: `, response);
+                    M.toast({html: `Error ${status}: ${response}`, classes: 'rounded'});
+                break;
+            case 500:
+                    console.log(`Error [${status}]: `, response);
+                    M.toast({html: `${status}: Internal Server Error.`, classes: 'rounded'});
+                break;
+            default:
+                console.log(`Error Desconocido [${status}]`, response);
+                break;
+        }
     }
 }
 

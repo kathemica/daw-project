@@ -1,7 +1,6 @@
-const devices = require('../controllers/devices.controller');
-
 module.exports = (app) => {
     const router = require('express').Router();
+    const devices = require('../controllers/devices.controller');
 
     //devices
     router.get('/devices', devices.findALl);

@@ -24,6 +24,11 @@ class MyFramework{
         return (elemento);
     };
 
+    //se castea el event porque no es proppiamente un HTMLElement
+    getElementByEvent(evt: Event): HTMLElement{
+        return <HTMLElement> evt.target;
+    };
+
     configClick(id:string,callback:any):void {
         let b:HTMLElement = document.getElementById(id);
         b.addEventListener("click",()=>{
@@ -31,25 +36,27 @@ class MyFramework{
         });
     };
 
-    //se castea el event porque no es proppiamente un HTMLElement
-    getElementByEvent(evt: Event): HTMLElement{
-        return <HTMLElement> evt.target;
-    }
-
     requestGET(url:string, listener: GETResponseListener):void {
         let xhr: XMLHttpRequest = new XMLHttpRequest();
 
-        xhr.onreadystatechange = function(){
-            if(xhr.readyState == 4){
-                if(xhr.status == 200){
-                    listener.handleGETResponse(xhr.status, xhr.responseText);
-                }else{
-                    listener.handleGETResponse(xhr.status,null);
-                }
-            }
-        };
-
         xhr.open('GET', url, true);
+        xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
+
+        try{
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState == 4){
+                    if(xhr.status == 200){
+                        listener.handleGETResponse(xhr.status, xhr.responseText);
+                    }else{
+                        listener.handleGETResponse(xhr.status,null);
+                    }
+                }
+            };
+        }catch (e) {
+            console.log("Warning: ", e)
+        }
+
+
         xhr.send(null);
     };
 
@@ -57,7 +64,6 @@ class MyFramework{
         let xhr: XMLHttpRequest = new XMLHttpRequest();
 
         xhr.open('PUT', url, true);
-
         xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
 
         xhr.onreadystatechange = function(){
@@ -76,8 +82,6 @@ class MyFramework{
     requestPOST(url:string, data:object, listener: POSTResponseListener):void {
         const dataJson= JSON.stringify(data);
 
-        console.log("DATA: ", dataJson);
-
         let xhr: XMLHttpRequest = new XMLHttpRequest();
 
         xhr.open('POST', url);
@@ -94,6 +98,25 @@ class MyFramework{
         };
 
         xhr.send(dataJson);
+    };
+
+    requestDELETE(url:string, listener: DELETEResponseListener):void {
+        let xhr: XMLHttpRequest = new XMLHttpRequest();
+
+        xhr.open('DELETE', url, true);
+        xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
+
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState == 4){
+                if(xhr.status == 200){
+                    listener.handleDELETEResponse(xhr.status, xhr.responseText);
+                }else{
+                    listener.handleDELETEResponse(xhr.status,null);
+                }
+            }
+        };
+
+        xhr.send(null);
     };
 
     configEventLister (event:string, id:string, listener:EventListenerObject):void {

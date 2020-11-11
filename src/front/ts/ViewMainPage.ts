@@ -1,8 +1,9 @@
 class ViewMainPage {
 
     private myFramework:  MyFramework;
+    private main:  Main;
 
-    constructor (myFramework: MyFramework){
+    constructor (myFramework: MyFramework, maim: Main){
         this.myFramework = myFramework;
     }
 
@@ -21,8 +22,9 @@ class ViewMainPage {
                         <img src= "static/images/${image}" alt="${device.name}" class="circle">
                         <span class="title">${device.name}</span>
                         <p>${device.descripcion}</p>
-                    </div>                    
-                    <div class="col l4 offset-l4 valign-wrapper">
+                    </div>                     
+                                
+                    <div class="col l5 m2 s3 white ">
                             <div class="row" style="margin-bottom: 0px"> 
                                 <div class="col s12 flow-text center">
                                    <a href="#!" >
@@ -36,33 +38,17 @@ class ViewMainPage {
                                         </div>
                                     </a>     
                                 </div>
-                                <div>
-                                    <input type="range" id="myRange">
-                                </div>
-                                                                                                                                
+                                ${dimer}                                                                                                                                 
                         </div>                        
-                    </div>                    
+                    </div>   
+                    
+                    <div class="col l1 white ">
+                         <a href="#!" action= "delete" id="del_${device.id}" parent_id="${device.id}" class="secondary-content tooltipped" data-delay="50" data-tooltip="I am a tooltip"><i class="material-icons" >delete_forever</i></a></li> 
+                    </div>
+                                    
                 </div>          
             </li>`;
         });
-
-        var anchors = document.getElementsByTagName("a");
-        for (var i = 0, length = anchors.length; i < length; i++) {
-            var anchor = anchors[i];
-            anchor.addEventListener('click', function() {
-                console.log(this.get);
-                // `this` refers to the anchor tag that's been clicked
-
-                // let estado: Number = this.value;
-                //
-                // let data = {"id" : `${btnB.id}`, "state": estado };
-
-                // console.log(estado);
-                // this.myFramework.requestPUT(`http://10.0.0.50:8005/api/devices/${btnB.id}`, data, this);
-
-                console.log(this.getAttribute('id'));
-            }, true);
-        };
     };
 
     getSwitchStateById(id: string): Number{

@@ -25,10 +25,6 @@ module.exports = (sequelize, DataTypes) => {
     name: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: {
-        args: true,
-        msg: 'Nombre de Device en uso.'
-      },
       validate: {
         len: {
           args: [1, 64],
@@ -108,10 +104,6 @@ module.exports = (sequelize, DataTypes) => {
           args: true,
           msg: 'Campo \'dimer_value\' solo admite números.'
         },
-        // len: {
-        //   args: [1, 5],
-        //   msg: 'La longitud de \'dimer_value\ debe ser de 1 caracteres.'
-        // },
         notNull: {
           msg: 'El campo \'dimer_value\ no puede ser nulo.'
         }
@@ -131,7 +123,6 @@ module.exports = (sequelize, DataTypes) => {
       sequelize,
       modelName: 'devices',
       timestamps: true,
-      paranoid: true,
       underscored: true,
   });
 
