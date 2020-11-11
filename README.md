@@ -106,6 +106,8 @@ El backend cuenta con las siguientes tecnologías a destacar:
 * sequelize-cli: ^6.2.0
 ---
 
+Para el desarrollo del back en node se empleó express y sequelize como ORM para ser usado con MySQL, se generaron los siguientes endpoints:
+
 #### Endpoints
 
 ---
