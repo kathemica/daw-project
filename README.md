@@ -42,7 +42,7 @@ Se recomienda leer la siguiente [Wiki 📖](https://github.com/ce-iot/daw-projec
 El proyecto se encuentra compuesto de dos partes, a saber: Backend y Frontend
 
 Se encuentra estructurado de la siguiente manera:
-![dashboard](doc\000.PNG)
+![dashboard](doc/000.png)
 
 ---
 
@@ -54,7 +54,7 @@ El front-end cuenta con las siguientes tecnologías:
   * Typescript
 
 El mismo cuenta con el siguiente look & feel:
-![dashboard](doc\001.PNG)
+![dashboard](doc/001.png)
 
 * A: Formulario de inserción de dispositivos
 * B: Scroll área para los dispositivos existentes
@@ -63,7 +63,7 @@ El mismo cuenta con el siguiente look & feel:
 
 #### Formulario
 El detalle del formulario de inserción es el siguiente:
-![dashboard](doc\002.PNG)
+![dashboard](doc/002.png)
 
 Presenta dos input fields uno para el nombre y otro para la descripción del dispositivo, en la parte inferior presenta 
 dos radio buttons para seleccionar el tipo, así mismo cuenta con un checkbox para indicar si el dispositivo en cuestión 
@@ -72,15 +72,15 @@ es dimerizable. Finalmente se presentan dos botones: uno para agregar el disposi
 * Cabe destacar   que si el dispositivo a insertar ya se encuentra en la base de datos en siguiente toast se mostrará y no
 se persistirá el dato:
 
-![dashboard](doc\toast001.PNG)
+![dashboard](doc/toast001.png)
 
 * Por otro lado si se procede a insertar un registro vacío se mostrarpa el siguiente toast:
 
-![dashboard](doc\toast002.PNG)
+![dashboard](doc/toast002.png)
 
 
 #### Scrolling área
-![dashboard](doc\003.PNG)
+![dashboard](doc/003.png)
 
 Cada dispositivo registrado en la base de datos se muestra en esta sección, en la misma se puede apreciar lo siguiente:
 * A: Botón de eliminar: se emplea para remover dispositivos de la base de datos.
