@@ -28,7 +28,7 @@ Template project for Web Applications Development.
 
 To read all project documentation, please go to its wiki in [this link](https://github.com/ce-iot/daw-project-template/wiki).
 
-## collapsible markdown?
+## Introducción
 
 <details><summary>Introducción</summary>
 <p>
@@ -42,9 +42,9 @@ print("hello world!")
 </p>
 </details>
 
-## collapsible markdown?
+## Descripción del Proyecto
 
-<details><summary>Descripción del Proyecto</summary>
+<details><summary>Front-End</summary>
 <p>
 
 #### yes, even hidden code blocks!
@@ -56,7 +56,19 @@ print("hello world!")
 </p>
 </details>
 
-## collapsible markdown?
+<details><summary>Back-End</summary>
+<p>
+
+#### yes, even hidden code blocks!
+
+```python
+print("hello world!")
+```
+
+</p>
+</details>
+
+## Puesta en marcha
 
 <details><summary>Estructura</summary>
 <p>
