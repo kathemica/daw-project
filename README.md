@@ -65,6 +65,7 @@ El mismo cuenta con el siguiente look & feel:
 
 #### Formulario
 El detalle del formulario de inserción es el siguiente:
+
 ![dashboard](doc/002.png)
 
 Presenta dos input fields uno para el nombre y otro para la descripción del dispositivo, en la parte inferior presenta 
