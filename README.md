@@ -10,7 +10,6 @@
 ![mysql](https://img.shields.io/badge/MySQL-5.7-green?style=plastic)
 ![phpmyadmin](https://img.shields.io/badge/admin-phpMyAdmin-green?style=plastic)
 
-
 ![header](doc/header.png)
 
 # TP Desarrollo de Aplicaciones Web
@@ -28,6 +27,50 @@ Docentes:
 Template project for Web Applications Development.
 
 To read all project documentation, please go to its wiki in [this link](https://github.com/ce-iot/daw-project-template/wiki).
+
+## collapsible markdown?
+
+<details><summary>Introducción</summary>
+<p>
+
+#### yes, even hidden code blocks!
+
+```python
+print("hello world!")
+```
+
+</p>
+</details>
+
+## collapsible markdown?
+
+<details><summary>Descripción del Proyecto</summary>
+<p>
+
+#### yes, even hidden code blocks!
+
+```python
+print("hello world!")
+```
+
+</p>
+</details>
+
+## collapsible markdown?
+
+<details><summary>Estructura</summary>
+<p>
+
+#### yes, even hidden code blocks!
+
+```python
+print("hello world!")
+```
+
+</p>
+</details>
+
+
 
 ## Licence
 
